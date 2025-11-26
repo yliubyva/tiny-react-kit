@@ -5,8 +5,7 @@ import { Input } from '@/components/Input';
 const meta = {
   title: 'Smart Input',
   component: Input,
-  parameters: {
-  },
+  parameters: {},
 } satisfies Meta<typeof Input>;
 
 export default meta;
