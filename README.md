@@ -1,4 +1,4 @@
-### Create a small React component library using Storybook.
+# Create a small React component library using Storybook.
 
 ## Getting Started
 
