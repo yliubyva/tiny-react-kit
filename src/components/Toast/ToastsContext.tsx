@@ -28,7 +28,7 @@ export function ToastProvider({
 
     setTimeout(() => {
       removeToast(id);
-    }, duration); //TODO: add variables to change time
+    }, duration);
   };
 
   const removeToast = (id: string) => {
