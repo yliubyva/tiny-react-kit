@@ -1,4 +1,4 @@
-export type ToastsVariant = 'solid' | 'bordered' | 'flat';
+export type ToastsVariant = 'solid' | 'bordered';
 export type ToastsColor = 'default' | 'success' | 'danger';
 
 export interface ToastsType {
@@ -7,4 +7,5 @@ export interface ToastsType {
   description?: string;
   variant: ToastsVariant;
   color: ToastsColor;
+  duration: 2000 | 5000 | 10000;
 }

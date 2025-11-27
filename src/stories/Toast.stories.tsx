@@ -9,11 +9,11 @@ import {
 import { ToastsType } from '@/components/Toast/toastTypes';
 
 const meta = {
-  title: 'Smart Toast',
+  title: 'Toast',
   component: Toast,
   decorators: [
     (Story) => (
-      <ToastProvider duration={10000}>
+      <ToastProvider>
         <Story />
         <ToastContainer />
       </ToastProvider>
@@ -28,12 +28,15 @@ const ToastButton = ({
   title,
   description,
   variant,
+  duration,
   color,
 }: Omit<ToastsType, 'id'>) => {
   const { addToast } = useToast();
 
   return (
-    <button onClick={() => addToast({ title, description, variant, color })}>
+    <button
+      onClick={() => addToast({ title, description, variant, color, duration })}
+    >
       Display {color}-{variant} Toast
     </button>
   );
@@ -45,6 +48,7 @@ export const DefaultToast: Story = {
     description: 'Display default toast',
     variant: 'solid',
     color: 'default',
+    duration: 2000,
   },
   render: (args) => <ToastButton {...args} />,
 };
@@ -55,6 +59,7 @@ export const DangerToast: Story = {
     description: 'Display danger toast',
     variant: 'solid',
     color: 'danger',
+    duration: 5000,
   },
   render: (args) => <ToastButton {...args} />,
 };
@@ -65,6 +70,7 @@ export const SuccessToast: Story = {
     description: 'Display success toast',
     variant: 'solid',
     color: 'success',
+    duration: 10000,
   },
   render: (args) => <ToastButton {...args} />,
 };

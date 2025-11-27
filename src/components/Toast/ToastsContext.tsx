@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useId, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { ToastsType } from './toastTypes';
 
 interface ToastContextType {
@@ -13,17 +13,13 @@ export const ToastsContext = createContext<ToastContextType | undefined>(
   undefined,
 );
 
-export function ToastProvider({
-  children,
-  duration,
-}: {
-  children: React.ReactNode;
-  duration: number;
-}) {
+export function ToastProvider({ children }: { children: React.ReactNode }) {
   const [toasts, setToasts] = useState<ToastsType[]>([]);
 
   const addToast = (toast: Omit<ToastsType, 'id'>) => {
     const id = Math.random().toString(36).substring(2, 11);
+    const duration = toast.duration;
+    
     setToasts((prev) => [...prev, { ...toast, id }]);
 
     setTimeout(() => {
